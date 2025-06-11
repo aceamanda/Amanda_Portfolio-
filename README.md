@@ -1,6 +1,6 @@
 # Amanda Portfólio 
 
-<img src="imagem.png" alt="Exemplo imagem">
+![image](https://github.com/user-attachments/assets/0a9cfb31-f944-4af7-9773-75123bdb9cd4)
 
 > Portfólio funcional feito com HTML, CSS e Javascript
 
@@ -8,7 +8,7 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-- Finalizar as outras abas
+- Melhorar as abas de projetos e sobre
 
 ## 🚀 Instalando Amanda Portfólio
 
