@@ -1,31 +1,26 @@
 /* ESTILO GERAL */
-
-html {
-  scroll-behavior: smooth;
-}
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Oswald", sans-serif;
 }
 
-body{
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(img/fundo3.jpg) no-repeat;
+    background: url(img/fundo3.jpg) no-repeat; 
     background-size: cover;
     background-position: center;
 }
 
-.logo img{
-    width: 200px;
-    height: auto;
-}
-
+/* CABEÇALHO */
 header {
     position: fixed;
     top: 0;
@@ -38,7 +33,12 @@ header {
     z-index: 99;
 }
 
-.menu-desktop a{
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+.menu-desktop a {
     position: relative;
     font-size: 1.1em;
     color: #fff;
@@ -47,7 +47,7 @@ header {
     margin-left: 40px;
 }
 
-.menu-desktop a::after{
+.menu-desktop a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -56,15 +56,17 @@ header {
     height: 3px;
     background: #fff;
     border-radius: 5px;
-    transform-origin:right;
+    transform-origin: right;
     transform: scaleX(0);
     transition: transform .5s;
 }
 
-.menu-desktop a:hover::after{
-    transform-origin:left;
+.menu-desktop a:hover::after {
+    transform-origin: left;
     transform: scaleX(1);
 }
+
+/* Botões de contato e voltar */
 
 .caixa .Contato{
     width: 130px;
@@ -110,6 +112,8 @@ header {
     color: #000000;
 }
 
+/* CONTAINER PRINCIPAL E LÓGICA DE TRANSIÇÃO */
+/* Estilos do container principal */
 .Inicio {
     position: relative;
     width: 90%;
@@ -121,10 +125,7 @@ header {
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow: hidden; 
     transition: height .3s ease;
 }
 
@@ -132,91 +133,91 @@ header {
     height: 520px;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.caixa {
-  animation: fadeInUp 1.2s ease forwards;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.Inicio .caixa{
-    width: 100%;
-    text-align: center;
-    padding: 40px 30px;
-     
-}
-
+/* Estilos base  */
 .Inicio .caixa,
 .Inicio .caixa2 {
-    position: absolute;
+    position: absolute; 
+    top: 40px; 
+    left: 0;
     width: 100%;
-    padding: 40px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 0 30px; 
+    text-align: center;
+    transition: transform 0.6s ease, opacity 0.6s ease; 
 }
 
-.Inicio:not(.active) .caixa {
-    opacity: 1;
-    pointer-events: all;
+/* ESTADO INICIAL */
+
+.Inicio .caixa {
     transform: translateX(0);
+    opacity: 1;
+    pointer-events: all; 
 }
 
-.Inicio.active .caixa{
+.Inicio .caixa2 {
+    transform: translateX(100%); 
+    opacity: 0;
+    pointer-events: none; 
+}
+
+/* ESTADO ATIVO  */
+
+.Inicio.active .caixa {
+    transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
-    transform: translateX(-400px);
 }
 
-.Inicio:not(.active) .caixa2 {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(400px);
-}
-
-.Inicio.active .caixa2{
+.Inicio.active .caixa2 {
+    transform: translateX(0);
     opacity: 1;
     pointer-events: all;
-    transform: translateX(0);
 }
 
+/* ESTILOS DE TEXTO DAS CAIXAS (para todos os tamanhos de tela) */
+
+.caixa h2, .caixa2 h2 {
+    color: #ffffff;
+    text-align: center;
+}
+
+.caixa p {
+    color: #e0dfff;
+    text-align: center;
+    font-size: 1em; 
+    line-height: 1.6;
+    padding: 0 10px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Tamanhos de fonte específicos para cada H2 */
+.caixa h2 {
+    font-size: 1.8em; 
+    line-height: 1.4;
+}
+
+.caixa2 h2 {
+    font-size: 2.2em; 
+}
+
+/* AJUSTES PARA TELAS PEQUENAS */
 @media (max-width: 600px) {
     .caixa h2{
-        font-size: 1.5em;
-        line-height: 1.4;
-        color: #ffffff;
-        text-align: center;
+        font-size: 1.5em; 
     }
 
     .caixa2 h2{
-        font-size: 3em;
-        color: #ffffff;
-        text-align: center;
+        font-size: 2em; 
     }
 
     .caixa p{
-        font-size: 0.95em;
-        line-height: 1.6;
-        padding: 0 10px;
-        color: #e0dfff;
-        text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-        text-align: center;
-    
+        font-size: 0.95em; 
     }
 
-      nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
-
 .botoes {
     display: flex;
     justify-content: center;
@@ -241,11 +242,8 @@ header {
 }
 
 .botoes a button:hover {
-    background-color: #fff;
-    color: #162938;
     transform: scale(1.1);
 }
-
 
 button.GitHub:hover {
     background-color: #333;
